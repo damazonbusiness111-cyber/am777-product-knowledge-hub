@@ -18,6 +18,98 @@
             scroll-behavior: smooth;
         }
 
+        body.locked > *:not(.login-overlay) {
+            display: none !important;
+        }
+
+        .login-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: #0a0e1a;
+            z-index: 5000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-box {
+            background: linear-gradient(180deg, #161f38 0%, #10182c 100%);
+            border: 1px solid #29406b;
+            border-radius: 14px;
+            padding: 40px;
+            width: 360px;
+            max-width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-box .logo-text {
+            justify-content: center;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .login-box .login-sub {
+            color: #909090;
+            font-size: 0.85rem;
+            text-align: center;
+            margin-bottom: 26px;
+        }
+
+        .login-group {
+            margin-bottom: 16px;
+        }
+
+        .login-group label {
+            display: block;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .login-group input {
+            width: 100%;
+            padding: 10px 13px;
+            background-color: #0d1426;
+            border: 1px solid #29406b;
+            color: #ffffff;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .login-group input:focus {
+            outline: none;
+            border-color: #1e90ff;
+            box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.15);
+        }
+
+        .login-error {
+            color: #ff6b6b;
+            font-size: 0.82rem;
+            margin-top: 4px;
+            min-height: 18px;
+        }
+
+        .login-submit {
+            width: 100%;
+            background: linear-gradient(145deg, #2196ff, #1461c7);
+            color: #ffffff;
+            padding: 11px;
+            border-radius: 8px;
+            margin-top: 8px;
+            font-size: 0.92rem;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: #0a0e1a;
@@ -953,7 +1045,50 @@
         }
     </style>
 </head>
-<body>
+<body class="locked">
+    <script>
+        if (sessionStorage.getItem('am777_va_auth') === 'true') {
+            document.body.classList.remove('locked');
+        }
+    </script>
+
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-box">
+            <div class="logo-text">
+                <span class="logo-text-main">AM777</span>
+                <span class="logo-text-sub">Automation Solutions</span>
+            </div>
+            <h2>VA Product Knowledge Hub</h2>
+            <div class="login-sub">Internal access only</div>
+            <div class="login-group">
+                <label for="loginUser">Username</label>
+                <input type="text" id="loginUser" autocomplete="username" onkeydown="if(event.key==='Enter') document.getElementById('loginPass').focus()">
+            </div>
+            <div class="login-group">
+                <label for="loginPass">Password</label>
+                <input type="password" id="loginPass" autocomplete="current-password" onkeydown="if(event.key==='Enter') attemptLogin()">
+            </div>
+            <div class="login-error" id="loginError"></div>
+            <button class="login-submit" onclick="attemptLogin()">Sign In</button>
+        </div>
+    </div>
+
+    <script>
+        function attemptLogin() {
+            const user = document.getElementById('loginUser').value.trim();
+            const pass = document.getElementById('loginPass').value;
+            const errorEl = document.getElementById('loginError');
+            if (user === 'ActionManifest2026' && pass === 'am777atmtsol') {
+                sessionStorage.setItem('am777_va_auth', 'true');
+                document.body.classList.remove('locked');
+                errorEl.textContent = '';
+            } else {
+                errorEl.textContent = 'Incorrect username or password.';
+                document.getElementById('loginPass').value = '';
+            }
+        }
+    </script>
+
     <header>
         <div class="container">
             <div class="header-content">
