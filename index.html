@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AM777 Product Offers — Main Systems & Parking Lot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #0a0e1a;
+            color: #dbe2ef;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .offer-price, .calc-result-value {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            letter-spacing: 0.01em;
+        }
+
+        section h2 {
+            letter-spacing: -0.01em;
+            font-size: 1.9rem;
+            font-weight: 800;
+        }
+
+        .hero h1 {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-shadow: 0 0 30px rgba(30, 144, 255, 0.35);
+        }
+
+        ::selection {
+            background-color: #1e90ff;
+            color: #ffffff;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0e1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2a3a5a;
+            border-radius: 4px;
+        }
+
+        /* ── SMOOTH REVEAL MOTION ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.16, 0.84, 0.44, 1), transform 0.7s cubic-bezier(0.16, 0.84, 0.44, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            border-radius: 6px;
+            transition: all 0.35s cubic-bezier(0.16, 0.84, 0.44, 1);
+            font-weight: 600;
+            font-family: inherit;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+        }
+
+        button:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .btn-primary {
+            background-color: #1e90ff;
+            color: white;
+            padding: 12px 28px;
+        }
+
+        .btn-primary:hover {
+            background-color: #1a7dd9;
+        }
+
+        .btn-secondary {
+            background-color: #2a3a5a;
+            color: #ffffff;
+            padding: 12px 28px;
+            border: 1px solid #3a4a6a;
+        }
+
+        .btn-secondary:hover {
+            background-color: #3a4a6a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #0a0f1e;
+            border-bottom: 1px solid #1a2a4a;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffffff;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+        }
+
+        .logo-text-main {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text-sub {
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            color: #7fa8d9;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+            position: relative;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        nav a {
+            color: #9aa7bd;
+            font-size: 0.92rem;
+            font-weight: 500;
+            white-space: nowrap;
+            padding: 8px 14px;
+            border-radius: 20px;
+            transition: color 0.35s cubic-bezier(0.16, 0.84, 0.44, 1), background-color 0.35s cubic-bezier(0.16, 0.84, 0.44, 1);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        nav a.active {
+            color: #ffffff;
+            background-color: rgba(30, 144, 255, 0.15);
+        }
+
+        .nav-indicator {
+            position: absolute;
+            bottom: 0;
+            height: 2px;
+            background-color: #1e90ff;
+            border-radius: 2px;
+            transition: left 0.4s cubic-bezier(0.16, 0.84, 0.44, 1), width 0.4s cubic-bezier(0.16, 0.84, 0.44, 1);
+            opacity: 0;
+        }
+
+        .nav-indicator.visible {
+            opacity: 1;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0f172e 0%, #1a2a4a 100%);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid #1a2a4a;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        section {
+            padding: 60px 20px;
+            border-bottom: 1px solid #1a2a4a;
+            scroll-margin-top: 90px;
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        section > p {
+            text-align: center;
+            color: #909090;
+            margin-bottom: 50px;
+            font-size: 1.05rem;
+        }
+
+        .model-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .model-card {
+            background-color: #1a2a4a;
+            border: 1px solid #2a3a5a;
+            padding: 30px;
+            border-radius: 8px;
+            transition: all 0.4s cubic-bezier(0.16, 0.84, 0.44, 1);
+        }
+
+        .model-card:hover {
+            border-color: #1e90ff;
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.1);
+        }
+
+        .model-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .model-card p {
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .offer-card {
+            background-color: #1a2a4a;
+            border: 1px solid #2a3a5a;
+            border-radius: 8px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.16, 0.84, 0.44, 1);
+        }
+
+        .offer-card:hover {
+            border-color: #1e90ff;
+            box-shadow: 0 0 25px rgba(30, 144, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .offer-card h3 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .offer-price {
+            font-size: 1.2rem;
+            color: #1e90ff;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #2a3a5a;
+        }
+
+        .offer-label {
+            display: inline-block;
+            background-color: #2a3a5a;
+            color: #a0a0a0;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .offer-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .offer-card li {
+            color: #a0a0a0;
+            padding: 8px 0;
+            border-bottom: 1px solid #262f42;
+            font-size: 0.95rem;
+        }
+
+        .offer-card li:last-child {
+            border-bottom: none;
+        }
+
+        .offer-result {
+            background-color: #0f172e;
+            border-left: 3px solid #1e90ff;
+            padding: 15px;
+            border-radius: 4px;
+            color: #c0c0c0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #1a2a4a;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background-color: #0f172e;
+            border-bottom: 2px solid #2a3a5a;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        td {
+            padding: 15px;
+            color: #b0b0b0;
+            border-bottom: 1px solid #262f42;
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: #202a4a;
+        }
+
+        .parking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .parking-item {
+            background-color: #1a2a4a;
+            border: 1px solid #2a3a5a;
+            padding: 20px;
+            border-radius: 6px;
+            transition: all 0.4s cubic-bezier(0.16, 0.84, 0.44, 1);
+        }
+
+        .parking-item:hover {
+            border-color: #3a5a7a;
+        }
+
+        .parking-item h4 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .parking-item p {
+            color: #909090;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #2a3a5a;
+            color: #a0a0a0;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        .guide-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .guide-card {
+            background-color: #1a2a4a;
+            border: 1px solid #2a3a5a;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .guide-card h3 {
+            color: #1e90ff;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .guide-card ul {
+            list-style: none;
+        }
+
+        .guide-card li {
+            color: #b0b0b0;
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .guide-card li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1e90ff;
+        }
+
+        .calculator-section {
+            background-color: #1a2a4a;
+            border: 1px solid #2a3a5a;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .calc-group {
+            margin-bottom: 20px;
+        }
+
+        .calc-group label {
+            display: block;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .calc-group input,
+        .calc-group select {
+            width: 100%;
+            padding: 10px 12px;
+            background-color: #0f172e;
+            border: 1px solid #2a3a5a;
+            color: #ffffff;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .calc-group input:focus,
+        .calc-group select:focus {
+            outline: none;
+            border-color: #1e90ff;
+            box-shadow: 0 0 10px rgba(30, 144, 255, 0.1);
+        }
+
+        .calc-results {
+            background-color: #0f172e;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 25px;
+            border-left: 3px solid #1e90ff;
+        }
+
+        .calc-result-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #2a3a5a;
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+
+        .calc-result-line:last-child {
+            border-bottom: none;
+            padding-top: 15px;
+            border-top: 2px solid #2a3a5a;
+            font-weight: 600;
+            color: #1e90ff;
+            font-size: 1.1rem;
+        }
+
+        .calc-result-value {
+            text-align: right;
+            color: #1e90ff;
+            font-weight: 600;
+        }
+
+        .disclaimer {
+            background-color: #0f172e;
+            border-left: 3px solid #3a5a7a;
+            padding: 15px;
+            border-radius: 4px;
+            color: #909090;
+            font-size: 0.9rem;
+            margin-top: 25px;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: #909090;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            background-color: #0a0f1e;
+            border-top: 1px solid #1a2a4a;
+            padding: 30px 20px;
+            text-align: center;
+            color: #707070;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section h2 {
+                font-size: 1.7rem;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 4px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .offer-card {
+                padding: 20px;
+            }
+
+            .calculator-section {
+                padding: 20px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .chat-quick-btn,
+            .chat-bubble,
+            .chat-send,
+            .chat-close {
+                width: auto;
+            }
+        }
+
+        @media print {
+            header, footer {
+                display: none;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* ── AI CHAT ASSISTANT ── */
+        @keyframes msgIn {
+            from { opacity: 0; transform: translateY(10px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes windowIn {
+            from { opacity: 0; transform: translateY(16px) scale(0.94); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes typingDot {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-5px); opacity: 1; }
+        }
+
+        .chat-bubble {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #2196ff, #1461c7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.4s cubic-bezier(0.16, 0.84, 0.44, 1);
+            border: none;
+            box-shadow: 0 4px 20px rgba(30, 144, 255, 0.35);
+        }
+
+        .chat-bubble:hover {
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 6px 26px rgba(30, 144, 255, 0.5);
+        }
+
+        .chat-bubble svg {
+            width: 26px;
+            height: 26px;
+            stroke: #ffffff;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.35s cubic-bezier(0.16, 0.84, 0.44, 1);
+        }
+
+        .chat-bubble.open svg {
+            transform: rotate(90deg) scale(0.9);
+        }
+
+        .chat-notify-dot {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 12px;
+            height: 12px;
+            background-color: #00e08a;
+            border: 2px solid #0a0e1a;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 98px;
+            right: 24px;
+            width: 370px;
+            max-width: calc(100vw - 48px);
+            height: 500px;
+            max-height: calc(100vh - 140px);
+            background: linear-gradient(180deg, #161f38 0%, #10182c 100%);
+            border: 1px solid #29406b;
+            border-radius: 14px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(30, 144, 255, 0.08);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 999;
+            transform-origin: bottom right;
+        }
+
+        .chat-window.open {
+            display: flex;
+            animation: windowIn 0.35s cubic-bezier(0.16, 0.84, 0.44, 1);
+        }
+
+        .chat-header {
+            background-color: #0a0f1e;
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #29406b;
+        }
+
+        .chat-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #2196ff, #1461c7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .chat-avatar svg {
+            width: 20px;
+            height: 20px;
+            stroke: #ffffff;
+        }
+
+        .chat-avatar-status {
+            position: absolute;
+            bottom: -1px;
+            right: -1px;
+            width: 10px;
+            height: 10px;
+            background-color: #00e08a;
+            border: 2px solid #0a0f1e;
+            border-radius: 50%;
+        }
+
+        .chat-header-text {
+            flex: 1;
+        }
+
+        .chat-header-title {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        .chat-header-sub {
+            color: #7fd99a;
+            font-size: 0.75rem;
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: #909090;
+            font-size: 1.3rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px;
+        }
+
+        .chat-close:hover {
+            color: #ffffff;
+            transform: none;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 18px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .chat-msg {
+            max-width: 85%;
+            padding: 11px 14px;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            white-space: pre-line;
+            animation: msgIn 0.3s cubic-bezier(0.16, 0.84, 0.44, 1);
+        }
+
+        .chat-msg.bot {
+            background-color: #1c2b4f;
+            color: #d6dfef;
+            align-self: flex-start;
+            border-bottom-left-radius: 3px;
+            border: 1px solid #2a3f68;
+        }
+
+        .chat-msg.user {
+            background: linear-gradient(145deg, #2196ff, #1461c7);
+            color: #ffffff;
+            align-self: flex-end;
+            border-bottom-right-radius: 3px;
+        }
+
+        .chat-typing {
+            align-self: flex-start;
+            background-color: #1c2b4f;
+            border: 1px solid #2a3f68;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border-bottom-left-radius: 3px;
+            display: flex;
+            gap: 5px;
+            animation: msgIn 0.3s cubic-bezier(0.16, 0.84, 0.44, 1);
+        }
+
+        .chat-typing span {
+            width: 6px;
+            height: 6px;
+            background-color: #6f9fd8;
+            border-radius: 50%;
+            animation: typingDot 1.2s ease-in-out infinite;
+        }
+
+        .chat-typing span:nth-child(2) { animation-delay: 0.15s; }
+        .chat-typing span:nth-child(3) { animation-delay: 0.3s; }
+
+        .chat-quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0 16px 14px;
+        }
+
+        .chat-quick-btn {
+            background-color: #1c2b4f;
+            border: 1px solid #2a3f68;
+            color: #a9c6ee;
+            padding: 7px 13px;
+            border-radius: 16px;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+
+        .chat-quick-btn:hover {
+            background-color: #24365f;
+            border-color: #1e90ff;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .chat-input-row {
+            display: flex;
+            border-top: 1px solid #29406b;
+            padding: 12px;
+            gap: 8px;
+        }
+
+        .chat-input-row input {
+            flex: 1;
+            background-color: #0d1426;
+            border: 1px solid #29406b;
+            color: #ffffff;
+            padding: 10px 13px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            transition: border-color 0.3s;
+        }
+
+        .chat-input-row input:focus {
+            outline: none;
+            border-color: #1e90ff;
+            box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.15);
+        }
+
+        .chat-send {
+            background: linear-gradient(145deg, #2196ff, #1461c7);
+            color: #ffffff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-send svg {
+            width: 17px;
+            height: 17px;
+            stroke: #ffffff;
+        }
+
+        .chat-disclaimer {
+            padding: 7px 16px;
+            font-size: 0.7rem;
+            color: #66707f;
+            border-top: 1px solid #1e2942;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            .chat-window {
+                width: calc(100vw - 24px);
+                right: 12px;
+                bottom: 90px;
+            }
+
+            .chat-bubble {
+                right: 16px;
+                bottom: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-text">
+                        <span class="logo-text-main">AM777</span>
+                        <span class="logo-text-sub">Automation Solutions</span>
+                    </div>
+                </div>
+                <nav id="mainNav">
+                    <a href="#start-here" data-target="start-here">Start Here</a>
+                    <a href="#offers" data-target="offers">Main Offers</a>
+                    <a href="#scripts" data-target="scripts">Scripts</a>
+                    <a href="#parking" data-target="parking">Parking Lot</a>
+                    <a href="#calculator" data-target="calculator">Calculator</a>
+                    <a href="#guide" data-target="guide">VA Guide</a>
+                    <span class="nav-indicator" id="navIndicator"></span>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>AM777 Product Offers</h1>
+            <p>A focused productized automation structure built around 3 main offers, with additional systems available in the parking lot by request.</p>
+            <div class="hero-cta">
+                <button class="btn-primary" onclick="document.getElementById('offers').scrollIntoView({behavior: 'smooth'})">View Main Offers</button>
+                <button class="btn-secondary" onclick="document.getElementById('parking').scrollIntoView({behavior: 'smooth'})">View Parking Lot</button>
+            </div>
+            <p style="font-size: 0.78rem; color: #6b7690; margin-top: 30px; margin-bottom: 0;">Reference last updated: July 8, 2026 — verify pricing against current CLAUDE.md before quoting a lead</p>
+        </div>
+    </section>
+
+    <section id="start-here" class="reveal">
+        <div class="container">
+            <h2>Start Here — VA Onboarding</h2>
+            <p>New to AM777 outreach? Follow these 3 steps before your first call or message.</p>
+            <div class="model-cards">
+                <div class="model-card">
+                    <h3>1. Learn the 3 Offers</h3>
+                    <p>Read the Main Offers section below. Know the price, what's included, and who it's for — for all 3 offers — before reaching out to anyone.</p>
+                </div>
+                <div class="model-card">
+                    <h3>2. Prep With Vati Bot</h3>
+                    <p>Open Vati (bottom-right) and ask it anything — pricing, objections, what to say and not say. Use it before a call if you're unsure of a detail.</p>
+                </div>
+                <div class="model-card">
+                    <h3>3. Use the Outreach Scripts</h3>
+                    <p>Use the message templates below as your starting point. Personalize them — don't copy-paste word for word.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="business-model" class="reveal">
+        <div class="container">
+            <h2>How AM777 Pricing Works</h2>
+            <p>The setup fee builds and deploys the system. The monthly system care keeps the system monitored, debugged, maintained, and improved.</p>
+            <div class="model-cards">
+                <div class="model-card">
+                    <h3>One-Time Setup Fee</h3>
+                    <p>Covers system design, configuration, testing, and deployment. The setup fee is paid once before the system goes live.</p>
+                </div>
+                <div class="model-card">
+                    <h3>Monthly System Care</h3>
+                    <p>Covers system support, debugging, automation checks, workflow monitoring, form/email/CRM fixes, minor updates, 24/7 automated error alerting, and human debugging based on support plan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="offers" class="reveal">
+        <div class="container">
+            <h2>Main Product Offers</h2>
+            <p>These are the primary systems AM777 will focus on selling first.</p>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <h3>Business Automation System</h3>
+                    <div class="offer-price">₱15,000 setup + ₱5,500/month</div>
+                    <span class="offer-label">Best For: Small businesses, service providers, freelancers, agencies, local SMEs</span>
+                    <ul>
+                        <li>CRM system</li>
+                        <li>Lead/client intake form</li>
+                        <li>Google Sheets dashboard</li>
+                        <li>Gmail acknowledgment</li>
+                        <li>Lead status tracking</li>
+                        <li>Follow-up tracker</li>
+                        <li>Basic automation workflow</li>
+                        <li>Monthly support and debugging</li>
+                    </ul>
+                    <div class="offer-result">
+                        <strong>Result:</strong> Helps businesses organize leads, client records, follow-ups, and basic automation so they reduce manual work and stop losing inquiries.
+                    </div>
+                </div>
+
+                <div class="offer-card">
+                    <h3>Client Onboarding + Lead Follow-Up System</h3>
+                    <div class="offer-price">₱20,000 setup + ₱7,500/month</div>
+                    <span class="offer-label">Best For: Agencies, service businesses, consultants, recruitment teams, outsourcing teams</span>
+                    <ul>
+                        <li>Client/applicant onboarding form</li>
+                        <li>CRM logging</li>
+                        <li>Auto acknowledgment email</li>
+                        <li>Follow-up status tracker</li>
+                        <li>Lead qualification fields</li>
+                        <li>Pipeline tracking</li>
+                        <li>n8n/Gmail/Sheets workflow</li>
+                        <li>Debug and system care support</li>
+                    </ul>
+                    <div class="offer-result">
+                        <strong>Result:</strong> Captures new leads or applicants, routes them into CRM, sends acknowledgment, and organizes follow-up actions.
+                    </div>
+                </div>
+
+                <div class="offer-card">
+                    <h3>High-Ticket Workflow System</h3>
+                    <div class="offer-price">₱50,000+ setup + ₱15,000+/month</div>
+                    <span class="offer-label">Best For: Schools, real estate teams, POS lite sales operations, HR/recruitment, multi-step workflows</span>
+                    <ul>
+                        <li>Custom intake workflow</li>
+                        <li>CRM/database structure</li>
+                        <li>Dashboard/reporting</li>
+                        <li>Follow-up and status tracking</li>
+                        <li>Email notifications</li>
+                        <li>Automation routing</li>
+                        <li>Error alerting</li>
+                        <li>Monthly priority system care</li>
+                    </ul>
+                    <div class="offer-result">
+                        <strong>Result:</strong> A larger custom workflow system for businesses that need structured operations, organized records, and ongoing automation support.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="scripts" class="reveal">
+        <div class="container">
+            <h2>Outreach Scripts</h2>
+            <p>Starting-point templates for VA outreach. Personalize with the lead's name and business — never send word-for-word to multiple leads.</p>
+            <div class="guide-cards">
+                <div class="guide-card">
+                    <h3>Cold Opener</h3>
+                    <p style="white-space: pre-line; color: #b0b0b0; font-size: 0.95rem; margin-bottom: 15px;">Hi [Name], I noticed [Business Name] handles a lot of [leads/inquiries/bookings] manually. AM777 builds automation systems that capture leads, organize them in a CRM, and handle follow-ups automatically — cutting the manual admin work down significantly. Worth a quick look at what that could look like for your business?</p>
+                    <button class="btn-secondary" style="width: 100%;" onclick="copyScript('opener')">Copy Script</button>
+                </div>
+                <div class="guide-card">
+                    <h3>Follow-Up (No Reply)</h3>
+                    <p style="white-space: pre-line; color: #b0b0b0; font-size: 0.95rem; margin-bottom: 15px;">Hi [Name], following up on my last message — no pressure. If organizing leads and cutting down manual follow-up work is something [Business Name] could use, I'm happy to walk you through how AM777's systems work and what setup would look like. Let me know if you'd like the details.</p>
+                    <button class="btn-secondary" style="width: 100%;" onclick="copyScript('followup')">Copy Script</button>
+                </div>
+                <div class="guide-card">
+                    <h3>Objection: "Too Expensive"</h3>
+                    <p style="white-space: pre-line; color: #b0b0b0; font-size: 0.95rem; margin-bottom: 15px;">Totally understand — a lot of clients ask that. It helps to think of it against what manual work costs you today: missed leads, hours spent on follow-up, admin time. The setup fee builds the system once; the monthly care keeps it running and debugged. Want me to walk through which offer fits your budget best?</p>
+                    <button class="btn-secondary" style="width: 100%;" onclick="copyScript('objection')">Copy Script</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="support" class="reveal">
+        <div class="container">
+            <h2>Monthly System Care Plans</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Plan</th>
+                        <th>Price</th>
+                        <th>What's Included</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Basic Care</strong></td>
+                        <td>₱2,500/month</td>
+                        <td>Monthly checkup, minor fixes, form/field updates, CRM cleanup</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Active Support</strong></td>
+                        <td>₱5,500/month</td>
+                        <td>Weekly check, debugging support, workflow review, email/form fixes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Priority System Care</strong></td>
+                        <td>₱12,500/month</td>
+                        <td>24/7 automated error alerting, priority debugging, monthly optimization</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Critical Ops Support</strong></td>
+                        <td>₱25,000+/month</td>
+                        <td>High-priority support, error monitoring, urgent issue handling, deeper maintenance</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="disclaimer">
+                <strong>Note:</strong> 24/7 monitoring means automated detection and alerting. Manual fixes are handled according to support priority and response schedule.
+            </div>
+        </div>
+    </section>
+
+    <section id="parking" class="reveal">
+        <div class="container">
+            <h2>Parking Lot Systems</h2>
+            <p>These systems are available by request, but they are not the main sales focus yet.</p>
+            <div class="parking-grid">
+                <div class="parking-item">
+                    <h4>CRM System Only</h4>
+                    <p>Setup: ₱7,500</p>
+                    <p>Monthly: ₱2,500/month</p>
+                    <span class="status-badge">Available by request</span>
+                </div>
+                <div class="parking-item">
+                    <h4>Booking System</h4>
+                    <p>Setup: ₱15,000</p>
+                    <p>Monthly: ₱5,500/month</p>
+                    <span class="status-badge">Available by request</span>
+                </div>
+                <div class="parking-item">
+                    <h4>Auto Invoicing System</h4>
+                    <p>Setup: ₱15,000</p>
+                    <p>Monthly: ₱5,500/month</p>
+                    <span class="status-badge">Available by request</span>
+                </div>
+                <div class="parking-item">
+                    <h4>Proposal / Quotation Builder</h4>
+                    <p>Setup: ₱10,000</p>
+                    <p>Monthly: ₱3,500/month</p>
+                    <span class="status-badge">Available by request</span>
+                </div>
+                <div class="parking-item">
+                    <h4>HR / Applicant Tracker</h4>
+                    <p>Setup: ₱25,000</p>
+                    <p>Monthly: ₱8,500/month</p>
+                    <span class="status-badge">Available by request</span>
+                </div>
+                <div class="parking-item">
+                    <h4>Landing Page + AI Chatbot</h4>
+                    <p>Setup: ₱25,000</p>
+                    <p>Monthly: ₱8,500/month</p>
+                    <span class="status-badge">Available by request</span>
+                </div>
+                <div class="parking-item">
+                    <h4>Custom Digital Automation</h4>
+                    <p>Setup: ₱75,000+</p>
+                    <p>Monthly: ₱20,000+/month</p>
+                    <span class="status-badge">Quoted after review</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="guide" class="reveal">
+        <div class="container">
+            <h2>How VAs Should Explain AM777</h2>
+            <p>AM777 builds business automation systems that help clients capture leads, organize CRM records, automate follow-ups, reduce manual admin work, and keep workflows monitored through monthly system care.</p>
+            <div class="guide-cards">
+                <div class="guide-card">
+                    <h3>Do Say</h3>
+                    <ul>
+                        <li>Setup builds the system.</li>
+                        <li>Monthly care keeps it monitored, debugged, and maintained.</li>
+                        <li>AM777 uses automation alerts and human debugging support.</li>
+                        <li>Main focus is business systems, onboarding, follow-up, and high-ticket workflows.</li>
+                    </ul>
+                </div>
+                <div class="guide-card">
+                    <h3>Do Not Say</h3>
+                    <ul>
+                        <li>24/7 human team monitoring</li>
+                        <li>Guaranteed income</li>
+                        <li>Investor-ready company</li>
+                        <li>Unlimited support</li>
+                        <li>Anything can be built instantly</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="commission" class="reveal">
+        <div class="container">
+            <h2>VA Commission Reference</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Commission Type</th>
+                        <th>Rate</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Setup Commission</strong></td>
+                        <td>20%</td>
+                        <td>From setup fee for directly helped closed clients</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Monthly Recurring Commission</strong></td>
+                        <td>5%–10%</td>
+                        <td>From monthly system care for clients they help manage or retain</td>
+                    </tr>
+                    <tr>
+                        <td><strong>High-Ticket Closing Support</strong></td>
+                        <td>20%–25%</td>
+                        <td>One-time commission depending on involvement</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fixed Salary</strong></td>
+                        <td>Discussed</td>
+                        <td>Only after stable monthly revenue</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="disclaimer">
+                <strong>Disclaimer:</strong> Final commission and payout must be confirmed in writing before work begins.
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="reveal">
+        <div class="container">
+            <h2>Quick Calculator</h2>
+            <div class="calculator-section">
+                <div class="calc-group">
+                    <label for="offer-select">Select Main Offer</label>
+                    <select id="offer-select" onchange="updateCalculator()">
+                        <option value="">-- Choose an offer --</option>
+                        <option value="15000,5500">Business Automation System (₱15,000 + ₱5,500/mo)</option>
+                        <option value="20000,7500">Client Onboarding System (₱20,000 + ₱7,500/mo)</option>
+                        <option value="50000,15000">High-Ticket Workflow System (₱50,000 + ₱15,000/mo)</option>
+                    </select>
+                </div>
+                <div class="calc-group">
+                    <label for="months">Contract Months</label>
+                    <input type="number" id="months" value="12" min="1" max="60" onchange="updateCalculator()">
+                </div>
+                <div class="calc-group">
+                    <label for="setup-commission">Setup Commission %</label>
+                    <input type="number" id="setup-commission" value="20" min="0" max="100" onchange="updateCalculator()">
+                </div>
+                <div class="calc-group">
+                    <label for="monthly-commission">Monthly Recurring Commission %</label>
+                    <input type="number" id="monthly-commission" value="5" min="0" max="100" onchange="updateCalculator()">
+                </div>
+                <div class="calc-results">
+                    <div class="calc-result-line">
+                        <span>Setup Fee</span>
+                        <span class="calc-result-value" id="result-setup">₱0</span>
+                    </div>
+                    <div class="calc-result-line">
+                        <span>Monthly Rate</span>
+                        <span class="calc-result-value" id="result-monthly">₱0</span>
+                    </div>
+                    <div class="calc-result-line">
+                        <span>Contract Months</span>
+                        <span class="calc-result-value" id="result-months">0</span>
+                    </div>
+                    <div class="calc-result-line">
+                        <span>Total Contract Value</span>
+                        <span class="calc-result-value" id="result-total-contract">₱0</span>
+                    </div>
+                    <div class="calc-result-line">
+                        <span>Your Setup Commission (20%)</span>
+                        <span class="calc-result-value" id="result-setup-comm">₱0</span>
+                    </div>
+                    <div class="calc-result-line">
+                        <span>Your Monthly Commission</span>
+                        <span class="calc-result-value" id="result-monthly-comm">₱0</span>
+                    </div>
+                    <div class="calc-result-line">
+                        <span>Your Total Recurring Commission</span>
+                        <span class="calc-result-value" id="result-total-monthly-comm">₱0</span>
+                    </div>
+                    <div class="calc-result-line">
+                        <span>Your Total Earnings (Setup + Recurring)</span>
+                        <span class="calc-result-value" id="result-total-earnings">₱0</span>
+                    </div>
+                </div>
+                <button class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="copyCalculation()">Copy Calculation</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section reveal">
+        <div class="container">
+            <h2>Focus on the 3 Main Offers First</h2>
+            <p>Parking lot systems are available, but AM777 should sell the main 3 offers first to stay focused, organized, and scalable.</p>
+            <button class="btn-primary" onclick="copySummary()">Copy Offer Summary</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AM777 Automation Solutions. All rights reserved. | Built for focus. Built for scale.</p>
+        </div>
+    </footer>
+
+    <script>
+        function updateCalculator() {
+            const offerSelect = document.getElementById('offer-select').value;
+            const months = parseInt(document.getElementById('months').value) || 12;
+            const setupCommRate = parseInt(document.getElementById('setup-commission').value) || 0;
+            const monthlyCommRate = parseInt(document.getElementById('monthly-commission').value) || 0;
+
+            if (!offerSelect) {
+                document.getElementById('result-setup').textContent = '₱0';
+                document.getElementById('result-monthly').textContent = '₱0';
+                document.getElementById('result-months').textContent = '0';
+                document.getElementById('result-total-contract').textContent = '₱0';
+                document.getElementById('result-setup-comm').textContent = '₱0';
+                document.getElementById('result-monthly-comm').textContent = '₱0';
+                document.getElementById('result-total-monthly-comm').textContent = '₱0';
+                document.getElementById('result-total-earnings').textContent = '₱0';
+                return;
+            }
+
+            const [setup, monthly] = offerSelect.split(',').map(Number);
+
+            const setupComm = Math.round(setup * (setupCommRate / 100));
+            const monthlyComm = Math.round(monthly * (monthlyCommRate / 100));
+            const totalMonthlyComm = monthlyComm * months;
+            const totalContract = setup + (monthly * months);
+            const totalEarnings = setupComm + totalMonthlyComm;
+
+            document.getElementById('result-setup').textContent = '₱' + setup.toLocaleString('en-PH');
+            document.getElementById('result-monthly').textContent = '₱' + monthly.toLocaleString('en-PH');
+            document.getElementById('result-months').textContent = months;
+            document.getElementById('result-total-contract').textContent = '₱' + totalContract.toLocaleString('en-PH');
+            document.getElementById('result-setup-comm').textContent = '₱' + setupComm.toLocaleString('en-PH');
+            document.getElementById('result-monthly-comm').textContent = '₱' + monthlyComm.toLocaleString('en-PH') + '/month';
+            document.getElementById('result-total-monthly-comm').textContent = '₱' + totalMonthlyComm.toLocaleString('en-PH');
+            document.getElementById('result-total-earnings').textContent = '₱' + totalEarnings.toLocaleString('en-PH');
+        }
+
+        function copyCalculation() {
+            const setup = document.getElementById('result-setup').textContent;
+            const monthly = document.getElementById('result-monthly').textContent;
+            const months = document.getElementById('result-months').textContent;
+            const totalContract = document.getElementById('result-total-contract').textContent;
+            const setupComm = document.getElementById('result-setup-comm').textContent;
+            const monthlyComm = document.getElementById('result-monthly-comm').textContent;
+            const totalMonthlyComm = document.getElementById('result-total-monthly-comm').textContent;
+            const totalEarnings = document.getElementById('result-total-earnings').textContent;
+
+            const text = `AM777 Commission Calculation
+Setup Fee: ${setup}
+Monthly Rate: ${monthly}
+Contract Duration: ${months} months
+Total Contract Value: ${totalContract}
+Your Setup Commission: ${setupComm}
+Your Monthly Commission: ${monthlyComm}
+Your Total Recurring Commission: ${totalMonthlyComm}
+Your Total Earnings: ${totalEarnings}`;
+
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Calculation copied to clipboard!');
+            });
+        }
+
+        const SCRIPTS = {
+            opener: "Hi [Name], I noticed [Business Name] handles a lot of [leads/inquiries/bookings] manually. AM777 builds automation systems that capture leads, organize them in a CRM, and handle follow-ups automatically — cutting the manual admin work down significantly. Worth a quick look at what that could look like for your business?",
+            followup: "Hi [Name], following up on my last message — no pressure. If organizing leads and cutting down manual follow-up work is something [Business Name] could use, I'm happy to walk you through how AM777's systems work and what setup would look like. Let me know if you'd like the details.",
+            objection: "Totally understand — a lot of clients ask that. It helps to think of it against what manual work costs you today: missed leads, hours spent on follow-up, admin time. The setup fee builds the system once; the monthly care keeps it running and debugged. Want me to walk through which offer fits your budget best?"
+        };
+
+        function copyScript(key) {
+            navigator.clipboard.writeText(SCRIPTS[key]).then(() => {
+                alert('Script copied to clipboard!');
+            });
+        }
+
+        function copySummary() {
+            const summary = `AM777 MAIN PRODUCT OFFERS
+
+1. Business Automation System
+   Setup: ₱15,000 | Monthly: ₱5,500
+
+2. Client Onboarding + Lead Follow-Up System
+   Setup: ₱20,000 | Monthly: ₱7,500
+
+3. High-Ticket Workflow System
+   Setup: ₱50,000+ | Monthly: ₱15,000+
+
+MONTHLY SYSTEM CARE:
+- Basic Care: ₱2,500/month
+- Active Support: ₱5,500/month
+- Priority System Care: ₱12,500/month
+- Critical Ops Support: ₱25,000+/month
+
+VA COMMISSIONS:
+- Setup Commission: 20%
+- Monthly Recurring: 5-10%
+- High-Ticket Closing: 20-25%`;
+
+            navigator.clipboard.writeText(summary).then(() => {
+                alert('Offer summary copied to clipboard!');
+            });
+        }
+
+        // ── SCROLL REVEAL ──
+        const revealEls = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        revealEls.forEach(el => revealObserver.observe(el));
+
+        // ── NAV TAB SWITCHING (sliding indicator) ──
+        const navLinks = Array.from(document.querySelectorAll('#mainNav a'));
+        const navIndicator = document.getElementById('navIndicator');
+        const navTargets = navLinks.map(a => document.getElementById(a.dataset.target)).filter(Boolean);
+
+        function moveIndicatorTo(link) {
+            if (!link) return;
+            navIndicator.style.left = link.offsetLeft + 'px';
+            navIndicator.style.width = link.offsetWidth + 'px';
+            navIndicator.classList.add('visible');
+        }
+
+        function setActiveNav(id) {
+            navLinks.forEach(a => a.classList.toggle('active', a.dataset.target === id));
+            const activeLink = navLinks.find(a => a.dataset.target === id);
+            moveIndicatorTo(activeLink);
+        }
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) setActiveNav(entry.target.id);
+            });
+        }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+        navTargets.forEach(section => navObserver.observe(section));
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                setTimeout(() => setActiveNav(link.dataset.target), 50);
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            const current = navLinks.find(a => a.classList.contains('active'));
+            if (current) moveIndicatorTo(current);
+        });
+
+        // ── AI CHAT ASSISTANT ──
+        const KB = [
+            { keys: ['main offer', 'what offers', 'offers do you have', '3 offers', 'three offers', 'what do you sell', 'what systems'],
+              a: 'AM777 has 3 main offers:\n\n1. Business Automation System — ₱15,000 + ₱5,500/mo\n2. Client Onboarding + Lead Follow-Up System — ₱20,000 + ₱7,500/mo\n3. High-Ticket Workflow System — ₱50,000+ + ₱15,000+/mo\n\nAsk me about any one of these for full details.' },
+            { keys: ['business automation', 'offer 1', 'first offer'],
+              a: 'Business Automation System\n₱15,000 setup + ₱5,500/month\n\nBest for small businesses, service providers, freelancers, and local SMEs. Includes a CRM, lead intake form, Sheets dashboard, Gmail acknowledgment, follow-up tracker, and monthly support.' },
+            { keys: ['onboarding', 'follow-up system', 'offer 2', 'second offer'],
+              a: 'Client Onboarding + Lead Follow-Up System\n₱20,000 setup + ₱7,500/month\n\nBuilt for agencies, consultants, and recruitment teams. Includes onboarding forms, CRM logging, auto acknowledgment emails, lead qualification, and pipeline tracking.' },
+            { keys: ['high-ticket', 'high ticket', 'offer 3', 'third offer', 'school', 'real estate', 'pos', 'hr system'],
+              a: 'High-Ticket Workflow System\n₱50,000+ setup + ₱15,000+/month\n\nFor schools, real estate teams, POS-lite operations, and HR/recruitment. Fully custom intake workflow, CRM structure, dashboard/reporting, and priority system care.' },
+            { keys: ['price', 'pricing', 'cost', 'how much', 'rates'],
+              a: 'AM777 pricing is Setup Fee + Monthly System Care:\n\n1. Business Automation — ₱15,000 + ₱5,500/mo\n2. Client Onboarding — ₱20,000 + ₱7,500/mo\n3. High-Ticket Workflow — ₱50,000+ + ₱15,000+/mo\n\nWant details on any of these?' },
+            { keys: ['support', 'system care', 'maintenance', 'monitoring'],
+              a: 'Monthly System Care plans:\n\nBasic Care — ₱2,500/mo\nActive Support — ₱5,500/mo\nPriority System Care — ₱12,500/mo\nCritical Ops Support — ₱25,000+/mo\n\n24/7 monitoring means automated error alerting — manual fixes follow your plan\'s response schedule.' },
+            { keys: ['parking lot', 'other systems', 'crm only', 'booking', 'invoicing', 'chatbot system', 'quotation'],
+              a: 'Parking Lot systems are available by request (not the main focus yet): CRM Only, Booking System, Auto Invoicing, Proposal Builder, HR Tracker, Landing Page + Chatbot, and Custom Automation. Ask about a specific one for pricing.' },
+            { keys: ['commission', 'collaborator', 'va commission', 'payout', 'percentage'],
+              a: 'VA commission reference:\n\nSetup Commission — 20%\nMonthly Recurring — 5%–10%\nHigh-Ticket Closing — 20%–25%\n\nFinal payout terms are always confirmed in writing before work begins.' },
+            { keys: ['guarantee', 'income', 'promise'],
+              a: 'AM777 does not offer income guarantees or investment promises. Every engagement is scoped, quoted, and delivered based on the actual system built.' },
+            { keys: ['pitch', 'elevator pitch', 'talking point', 'what should i say', 'how do i explain', 'how to pitch'],
+              a: 'Quick pitch for outreach:\n\n"AM777 builds business automation systems that help clients capture leads, organize CRM records, automate follow-ups, and cut manual admin work — with monthly system care keeping everything monitored and debugged."\n\nLead with the pain point (lost leads, manual work), then the fix (the system), then the care plan.' },
+            { keys: ['do not say', "don't say", 'avoid saying', 'what not to say', 'never say'],
+              a: 'Do NOT say to a lead:\n\n- "24/7 human team monitoring" (say "24/7 automated error alerting" instead)\n- Guaranteed income\n- Investor-ready company\n- Unlimited support\n- "Anything can be built instantly"\n\nThese overpromise and create problems later.' },
+            { keys: ['do say', 'what to say', 'correct wording', 'right way to say'],
+              a: 'DO say to a lead:\n\n- "Setup builds the system."\n- "Monthly care keeps it monitored, debugged, and maintained."\n- "AM777 uses automation alerts and human debugging support."\n- "Main focus is business systems, onboarding, follow-up, and high-ticket workflows."' },
+            { keys: ['objection', 'too expensive', 'price objection', 'hesitant', 'not sure lead'],
+              a: 'If a lead pushes back on price: reframe around what manual work costs them today (missed leads, hours spent on admin) vs. the setup + monthly care. Don\'t discount on the spot — flag it to Darwin for a pricing call.' },
+            { keys: ['contact', 'talk', 'human', 'darwin', 'agent', 'reach', 'escalate'],
+              a: 'If a lead needs a direct answer you\'re not sure about, don\'t guess — flag it to Darwin before promising anything. Never confirm final pricing or commission terms yourself; those are confirmed in writing only.' },
+            { keys: ['hi', 'hello', 'hey'],
+              a: 'Hey! I\'m Vati — ask me about any offer, pricing, support plan, or what to say (and not say) on a call. What do you need?' }
+        ];
+
+        function findAnswer(text) {
+            const lower = text.toLowerCase();
+            for (const entry of KB) {
+                if (entry.keys.some(k => lower.includes(k))) return entry.a;
+            }
+            return "I don't have that one yet — but I can help with: the 3 main offers, pricing, support plans, the parking lot, commission structure, or talking points for outreach. Try one of those, or use a quick option below.";
+        }
+
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            const chatBubble = document.getElementById('chatBubble');
+            const chatInput = document.getElementById('chatInput');
+            const isOpen = chatWindow.classList.toggle('open');
+            chatBubble.classList.toggle('open', isOpen);
+            if (isOpen) chatInput.focus();
+        }
+
+        function appendMessage(text, sender) {
+            const chatMessages = document.getElementById('chatMessages');
+            const el = document.createElement('div');
+            el.className = 'chat-msg ' + sender;
+            el.textContent = text;
+            chatMessages.appendChild(el);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTyping() {
+            const chatMessages = document.getElementById('chatMessages');
+            const el = document.createElement('div');
+            el.className = 'chat-typing';
+            el.id = 'typingIndicator';
+            el.innerHTML = '<span></span><span></span><span></span>';
+            chatMessages.appendChild(el);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function hideTyping() {
+            const el = document.getElementById('typingIndicator');
+            if (el) el.remove();
+        }
+
+        function botReply(text) {
+            showTyping();
+            const delay = 500 + Math.random() * 500;
+            setTimeout(() => {
+                hideTyping();
+                appendMessage(findAnswer(text), 'bot');
+            }, delay);
+        }
+
+        function sendMessage() {
+            const chatInput = document.getElementById('chatInput');
+            const text = chatInput.value.trim();
+            if (!text) return;
+            appendMessage(text, 'user');
+            chatInput.value = '';
+            botReply(text);
+        }
+
+        function quickReply(text) {
+            appendMessage(text, 'user');
+            botReply(text);
+        }
+
+    </script>
+
+    <button class="chat-bubble" id="chatBubble" onclick="toggleChat()" aria-label="Open Vati Bot">
+        <div class="chat-notify-dot"></div>
+        <svg viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="3" fill="#ffffff"/>
+            <path d="M20 20 L20 8" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/>
+            <path d="M20 20 L30 15" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/>
+            <path d="M20 20 L30 25" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/>
+            <path d="M20 20 L10 25" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/>
+            <path d="M20 20 L10 15" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/>
+            <circle cx="20" cy="8" r="1.8" fill="#ffffff"/>
+            <circle cx="30" cy="15" r="1.8" fill="#ffffff"/>
+            <circle cx="30" cy="25" r="1.8" fill="#ffffff"/>
+            <circle cx="10" cy="25" r="1.8" fill="#ffffff"/>
+            <circle cx="10" cy="15" r="1.8" fill="#ffffff"/>
+        </svg>
+    </button>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-avatar">
+                <svg viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="3" fill="#ffffff"/>
+                    <path d="M20 20 L20 8" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/>
+                    <path d="M20 20 L30 15" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/>
+                    <path d="M20 20 L30 25" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/>
+                    <path d="M20 20 L10 25" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/>
+                    <path d="M20 20 L10 15" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/>
+                    <circle cx="20" cy="8" r="1.8" fill="#ffffff"/>
+                    <circle cx="30" cy="15" r="1.8" fill="#ffffff"/>
+                    <circle cx="30" cy="25" r="1.8" fill="#ffffff"/>
+                    <circle cx="10" cy="25" r="1.8" fill="#ffffff"/>
+                    <circle cx="10" cy="15" r="1.8" fill="#ffffff"/>
+                </svg>
+                <div class="chat-avatar-status"></div>
+            </div>
+            <div class="chat-header-text">
+                <div class="chat-header-title">Vati Bot</div>
+                <div class="chat-header-sub">● Online — VA product knowledge assistant</div>
+            </div>
+            <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">&times;</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-msg bot">Hey, I'm Vati — your product knowledge assistant for outreach.
+Ask me about offers, pricing, support plans, or what to say (and not say) on a call. I'll answer instantly.</div>
+        </div>
+        <div class="chat-quick-replies">
+            <button class="chat-quick-btn" onclick="quickReply('What are the main offers?')">Main Offers</button>
+            <button class="chat-quick-btn" onclick="quickReply('How much does it cost?')">Pricing</button>
+            <button class="chat-quick-btn" onclick="quickReply('Give me an elevator pitch')">Elevator Pitch</button>
+            <button class="chat-quick-btn" onclick="quickReply('What should I not say?')">Do / Don't Say</button>
+        </div>
+        <div class="chat-input-row">
+            <input type="text" id="chatInput" placeholder="Ask Vati anything..." onkeydown="if(event.key==='Enter') sendMessage()">
+            <button class="chat-send" onclick="sendMessage()" aria-label="Send message">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+        <div class="chat-disclaimer">Vati is an internal knowledge tool for AM777 outreach — not a live agent. Never confirm final pricing or commission to a lead without Darwin's sign-off.</div>
+    </div>
+</body>
+</html>
