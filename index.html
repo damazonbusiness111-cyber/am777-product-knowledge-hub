@@ -1050,6 +1050,10 @@
         try {
             if (sessionStorage.getItem('am777_va_auth') === 'true') {
                 document.body.classList.remove('locked');
+                document.addEventListener('DOMContentLoaded', function () {
+                    var el = document.getElementById('loginOverlay');
+                    if (el) el.style.display = 'none';
+                });
             }
         } catch (e) {}
     </script>
@@ -1082,6 +1086,7 @@
             const errorEl = document.getElementById('loginError');
             if (user === 'ActionManifest2026' && pass === 'am777atmtsol') {
                 document.body.classList.remove('locked');
+                document.getElementById('loginOverlay').style.display = 'none';
                 errorEl.textContent = '';
                 try { sessionStorage.setItem('am777_va_auth', 'true'); } catch (e) {}
             } else {
