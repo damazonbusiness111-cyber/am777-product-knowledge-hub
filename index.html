@@ -1047,9 +1047,11 @@
 </head>
 <body class="locked">
     <script>
-        if (sessionStorage.getItem('am777_va_auth') === 'true') {
-            document.body.classList.remove('locked');
-        }
+        try {
+            if (sessionStorage.getItem('am777_va_auth') === 'true') {
+                document.body.classList.remove('locked');
+            }
+        } catch (e) {}
     </script>
 
     <div class="login-overlay" id="loginOverlay">
@@ -1062,11 +1064,11 @@
             <div class="login-sub">Internal access only</div>
             <div class="login-group">
                 <label for="loginUser">Username</label>
-                <input type="text" id="loginUser" autocomplete="username" onkeydown="if(event.key==='Enter') document.getElementById('loginPass').focus()">
+                <input type="text" id="loginUser" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" onkeydown="if(event.key==='Enter') document.getElementById('loginPass').focus()">
             </div>
             <div class="login-group">
                 <label for="loginPass">Password</label>
-                <input type="password" id="loginPass" autocomplete="current-password" onkeydown="if(event.key==='Enter') attemptLogin()">
+                <input type="password" id="loginPass" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" onkeydown="if(event.key==='Enter') attemptLogin()">
             </div>
             <div class="login-error" id="loginError"></div>
             <button class="login-submit" onclick="attemptLogin()">Sign In</button>
@@ -1076,12 +1078,12 @@
     <script>
         function attemptLogin() {
             const user = document.getElementById('loginUser').value.trim();
-            const pass = document.getElementById('loginPass').value;
+            const pass = document.getElementById('loginPass').value.trim();
             const errorEl = document.getElementById('loginError');
             if (user === 'ActionManifest2026' && pass === 'am777atmtsol') {
-                sessionStorage.setItem('am777_va_auth', 'true');
                 document.body.classList.remove('locked');
                 errorEl.textContent = '';
+                try { sessionStorage.setItem('am777_va_auth', 'true'); } catch (e) {}
             } else {
                 errorEl.textContent = 'Incorrect username or password.';
                 document.getElementById('loginPass').value = '';
